@@ -1,0 +1,64 @@
+\documentclass[10pt,a4paper,oneside]{article}
+
+\input{proposal_config}
+
+
+\title{Example Title}
+\author{Author Name}
+\date{\today}
+\advisor{M.Sc. Raphael Dunkel}
+\supervisor{Prof. Dr. Thomas Thüm}
+\thesistype{Bachelor} %Master
+
+
+\begin{document}
+	\maketitle
+
+	\section{Introduction}
+	Introduction~\cite{SBK+:SPLC24}
+	
+	\section{Problem Statement}
+	Problem Statement
+
+	\section{Contribution}
+	Contributions
+
+	\subsection{Work Packages}
+	
+	\begin{enumerate}
+		\item \textbf{WP1 -- Change}\\ Describe WP1
+	\end{enumerate}
+	\subsection{Schedule}
+
+	% FOR BACHELOR'S THESIS
+	\begin{center}
+		\begin{ganttchart}[hgrid, vgrid,expand chart=\textwidth, milestone/.append style={fill=primary, rounded corners=3pt}]{1}{12}
+			\gantttitle{Week}{12} \\
+			\gantttitlelist{1,...,12}{1} \\
+			\ganttbar{WP1}{1}{4} \\
+			\ganttmilestone{Intermediate presentation}{4} \\
+			\ganttbar{WP2}{5}{9} \\
+			\ganttbar{WP3}{7}{11} \\
+			\ganttbar{Buffer}{12}{12} \\
+			\ganttmilestone{Final presentation}{12}
+		\end{ganttchart}
+	\end{center}
+
+	% FOR MASTER'S THESIS
+%	\begin{center}
+%		\begin{ganttchart}[hgrid, vgrid,expand chart=\textwidth, milestone/.append style={fill=primary, rounded corners=3pt}]{1}{24}
+%			\gantttitle{Week}{24} \\
+%			\gantttitlelist{1,...,24}{1} \\
+%			\ganttbar{WP1}{1}{4} \\
+%			\ganttmilestone{Intermediate presentation}{6} \\
+%			\ganttbar{WP2}{5}{9} \\
+%			\ganttbar{WP3}{7}{11} \\
+%			\ganttbar{WP4}{11}{23} \\
+%			\ganttbar{Buffer}{24}{24} \\
+%			\ganttmilestone{Final presentation}{24}
+%		\end{ganttchart}
+%	\end{center}
+
+	% Literature
+	\printbibliography
+\end{document}

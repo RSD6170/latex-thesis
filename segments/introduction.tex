@@ -4,7 +4,7 @@
 
 \section{Motivation}
 
-Sample cite~\cite{DBLP:conf/msr/SihlerPSTDD24}
+Sample cite~\cite{SKH+:AMAI24}
 
 \begin{minted}{R}
 x <- list(i='hey', j='there')
@@ -70,54 +70,38 @@ See ulm university\foothref{https://web.archive.org/web/20241221140233/https://w
    \label{tab:simple}
 \end{table}
 
-\section{Problem Statement}
-
 \begin{pseudo}[tbp]
-	\caption{Algo Good}
-	\label{fun:good-algo}
-	\begin{algorithm}[H]
+    \caption{Algo Good}
+    \label{fun:good-algo}
+    \begin{algorithm}[H]
 		\PreCode
-		\Input{x :: String}
-      \Output{y :: String}
-		\Output{z :: String}
-		
-		\StartCode
-		\lIf{x \KwIs "hello"}{
-         \label{alg:important-line}\Return{"world"}
-      }
-      \While{true}{
-         \If{y \KwIs "world"}{
-            \Return{"hello"}
-         }
-      }
-      \Return{"goodbye"}
-	\end{algorithm}
+        \Input{x :: String}
+        \Output{y :: String}
+        \Output{z :: String}
+
+        \StartCode
+        \lIf{x \KwIs "hello"}{
+            \label{alg:important-line}\Return{"world"}
+        }
+        \While{true}{
+            \If{y \KwIs "world"}{
+                \Return{"hello"}
+            }
+        }
+        \Return{"goodbye"}
+    \end{algorithm}
 \end{pseudo}
 
 In the \nameref{fun:good-algo} algorithm \cref{fun:good-algo}, an important line is \AlgoLineRef{alg:important-line}.
 
-\begin{rqs}
-   \item \label{rq:concept} What is the concept of this thesis?
-   \item \label{rq:implementation} How is the concept implemented?
-   \item \label{rq:evaluation} How is the implementation evaluated?
-   \begin{rqs}
-      \item \label{rq:evaluation:correctness} How is the correctness evaluated? \begin{rqs}
-         \item Please do not nest the questions that deep!
-      \end{rqs}
-      \item \label{rq:evaluation:performance} How is the performance evaluated?
-   \end{rqs}
-\end{rqs}
-
-We can now reference \ref{rq:concept} or with cleveref: \cref{rq:concept}.
-
 You can also reference default enumerate elements:
 
 \begin{enumerate}
-   \item \label{item:rando}First item
-   \item Second item
+    \item \label{item:rando}First item
+    \item Second item
 \end{enumerate}
 
-With ref: \enquote{\ref{item:rando}}, on page \pageref{item:rando}, and cref: \enquote{\cref{item:rando}}. 
+With ref: \enquote{\ref{item:rando}}, on page \pageref{item:rando}, and cref: \enquote{\cref{item:rando}}.
 
 \needspace{5\baselineskip}
 But please, if there is any sense in doing so make use of, e.g., \texttt{ref} by \texttt{enumitem}:
@@ -140,6 +124,7 @@ print(x)
 \end{minted}
 
 We can reference code as well, see: \cref{jeah}.
+
 
 \section{Contributions}
 
