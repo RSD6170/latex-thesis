@@ -62,11 +62,25 @@
 \ifthesis@pageInFloatRef
 \def\thesis@figure{figure}\def\thesis@table{table}\def\thesis@lstlisting{lstlisting}
 \def\thesis@subfigure{subfigure}
+\newif\ifthesis@floatcounted
+\apptocmd\@xfloat{%
+  \ifx\@captype\thesis@figure\thesissetfig\global\thesis@floatcountedtrue\fi
+  \ifx\@captype\thesis@table\thesissettbl\global\thesis@floatcountedtrue\fi
+}{}{}
+\apptocmd\end@float{\global\thesis@floatcountedfalse}{}{}
+\apptocmd\end@dblfloat{\global\thesis@floatcountedfalse}{}{}
+\def\thesisfloatcount#1{\ifthesis@floatcounted\global\thesis@floatcountedfalse\else#1\fi}
+\def\thesisfloathooks{%
+    \ifx\@captype\thesis@figure\thesisfloatcount\thesissetfig\fi
+    \ifx\@captype\thesis@table\thesisfloatcount\thesissettbl\fi
+}
 \def\thesisfigurehooks{%
-    \ifx\@captype\thesis@figure\thesissetfig\fi
-    \ifx\@captype\thesis@table\thesissettbl\fi
-    \ifx\@captype\thesis@subfigure\thesissetsubfig\fi
     \ifx\@captype\thesis@lstlisting\thesissetlst\fi
+}
+\AddToHook{begindocument/end}{%
+  \pretocmd\caption@refstepcounter{\thesisfloathooks}{}{}%
+  \def\p@subfigure{\thefigure/}%
+  \def\p@subtable{\thetable/}%
 }
 \AddToHook{cmd/caption/before}{%
   \thesisfigurehooks
