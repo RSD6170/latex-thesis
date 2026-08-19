@@ -41,7 +41,7 @@
 \def\thesis@sidecite@do#1{\tiny\color{darkgray}\plaincite{#1}~\thesis@sidecite{#1}}
 \def\@locksidecite{%
    \expandafter\expandafter\expandafter\xdef\expandafter\csname mcited\etry\endcsname{\thesection}%
-   \sidenote[\z@]{\protect\thesis@sidecite@do{\etry}}%
+   \expandsidenote[\z@]{\protect\thesis@sidecite@do{\etry}}%
 }
 \newif\if@sidecite@doreset@
 \def\forcecite#1{{\@sidecite@doreset@true\sidecite{#1}\plaincite{#1}}}

@@ -71,6 +71,16 @@ See ulm university\foothref{https://web.archive.org/web/20241221140233/https://w
    \label{tab:simple}
 \end{table}
 
+Notes, references, and small figures can be placed in the margin with \texttt{\textbackslash sidenote}.\sidenote{Like this one, which is typeset next to its anchor.}
+A figure that is too small to deserve a float of its own is a good candidate for the margin:\sidenote{%
+   \centering
+   \includegraphics[width=.8\linewidth]{img/example.pdf}%
+   \captionof{figure}{A figure within the margin.}%
+   \label{fig:sidenote}%
+}
+Such a figure is numbered and referenced like any other one, see \cref{fig:sidenote}.
+The optional argument shifts a note vertically, which is helpful to align it with its surroundings.\sidenote[1.5\baselineskip]{This note is shifted downwards by one and a half lines.}
+
 \section{Problem Statement}
 
 \begin{pseudo}[tbp]

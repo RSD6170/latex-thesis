@@ -411,6 +411,8 @@ If you (for whatever unfathomable reason) dislike this scheme, the [document cla
 This still leaves you with the tools to register your own (see below), but disables the automatic hooks into the float environments.
 As the scheme already encodes the page, references to floats do not produce `on page` sidenotes with it &mdash; use the `floatRefSidenotes` option to control this explicitly.
 
+Only floats with a caption claim a number, `longtable` included.
+
 You can use the float environments (`figure`, `table`, ...) as well as captions (`\caption`, ...) as usual. Usually we try to place captions for figures below the graphic, while we place captions before/above tables.
 
 <details>
@@ -567,7 +569,8 @@ The [xlistings][] package is part of this template under [./_config/xlistings.st
 The margin paragraphs module has the base control of over the sidebar, using a combination of the [mparhack][] (fixes for marginpar), [ifoddpage][] (to detect page counts), and [ragged2e][] package (for improved ragged writing), as well as either the cheaper [marginnote][] package (if in `draft` mode) or the [scrlayer-notecolumn][] package (supports column breaks). Although we load this plethora of packages, there are just a couple of commands that you should know about:
 
 - `\sidenote[<yshift>]{<content>}` typesets the content into the margin.\
-  The starred variant `\sidenote*[<yshift>]{<content>}` relies on `\makenote*` when using the [scrlayer-notecolumn][] package and prevents the expansion of the content. These commands can be nested (which may appear accidentally) but may need additional passes to work, if you do not want nesting to appear, you can add a `\disablesidetrue` to the `\thesissidebarhook` (see below).
+  Both `\sidenote` and its starred variant `\sidenote*[<yshift>]{<content>}` rely on `\makenote*` when using the [scrlayer-notecolumn][] package and do not expand their content. These commands can be nested (which may appear accidentally) but may need additional passes to work, if you do not want nesting to appear, you can add a `\disablesidetrue` to the `\thesissidebarhook` (see below).
+- `\expandsidenote[<yshift>]{<content>}` expands its content instead, capturing transient values like `\glslabel`. Used by the class internals; fragile commands (`\label`, `\captionsetup`) do not survive it.
 - `\setmarginfont{<font>}` to set the font and color used in the margin.\
   You can use `\marginfont` to access the current font (with [scrlayer-notecolumn][] there is technically the `notecolumn.marginpar` koma-font too, but this is not reliable with `draft` mode)
 - `\noside{...}` disables `\sidenote`(s) commands in its argument\
