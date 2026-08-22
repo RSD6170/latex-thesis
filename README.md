@@ -227,6 +227,7 @@ Of course, not all options are equally important. Those of importance are at the
 | Option            | Default       | Description                                                                                                                                    |
 |:----------------- |:------------- |:---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `citeInMarginpar` | true          | If set to false, citations will not appear in the marginpar (see [bibliography support](#bibliography-support)).                               |
+| `citeMarginparScope` | chapter    | How often a citation may repeat in the margin: once per `chapter`, `section`, `subsection`, `page`, `document`, or `always` (see [bibliography support](#bibliography-support)). |
 | `draft`           | false         | If set to true, the document will be compiled in draft mode (showing overfull boxes, ...).                                                     |
 | `enhanceMath`     | true          | Load advanced math fonts (see [fonts](#fonts)).                                                                                                 |
 | `field`           | computer science | The field of study shown on the titlepage (translated by default).                                                                          |
@@ -283,6 +284,7 @@ flowchart TD
     meta --- field("`<code>field</code>`")
 
     layout --- citeInMarginpar("`<code>citeInMarginpar</code>`")
+    layout --- citeMarginparScope("`<code>citeMarginparScope</code>`")
     layout --- paper("`<code>paper</code>`")
     layout --- marginpars{{marginpars}}
     marginpars --- marginpar("`<code>marginpar</code>`")
@@ -374,8 +376,11 @@ If you want bibliography support, but do not want cites to appear in the margin,
 ]{thesis}
 ```
 
+To keep the margin readable, a citation appears there at most once per `citeMarginparScope`, which may be `chapter` (the default), `section`, `subsection`, `page`, `document`, or `always` (never suppress).
+Unnumbered units (like `\section*`) do not advance their counter and hence share the scope of the preceding numbered one.
+
 Even without disabling this setting, this module provides you with the `\plaincite{...}` macro which does not write the citation in the marginpar (`\noside{...}` and `\disablesidetrue` work as well).
-If on the other hand you want to willfully force a citation to appear in the sidebar, you can use the `\forcecite{...}` command. And, if you just want to have a cite appear in the marginpar, you can use the `\sidecite{...}` command.
+If on the other hand you want to willfully force a citation to appear in the sidebar, you can use the `\forcecite{...}` command, which ignores the scope suppression. And, if you just want to have a cite appear in the marginpar, you can use the `\sidecite{...}` command.
 
 As a side-effect, this module provides the `\enquote{...}` command by the [csquotes](https://ctan.org/pkg/csquotes) package which allows you to easily typeset texts within **c**ontext-**s**ensitive (and language dependent) quotes.
 
