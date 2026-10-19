@@ -199,10 +199,21 @@
 \def\reftextfaraway#1{on page\smash{~\pageref{#1}}}%
 \def\reftextfaceafter{on the \reftextvario{next}{facing} page}%
 \def\reftextfacebefore{on the previous page}%
-\def\reftextafter{on \reftextvario{page~\smash{\hyperpage{\thevpagerefnum}}}{page~\smash{\hyperpage{\thevpagerefnum}}}}% the~\smash{\nthpagelink{\thevpagerefnum}} page
-\def\reftextbefore{on \reftextvario{page~\smash{\hyperpage{\thevpagerefnum}}}{page~\smash{\hyperpage{\thevpagerefnum}}}}% the~\smash{\nthpagelink{\thevpagerefnum}} page
+\def\reftextafter{on the \reftextvario{following}{next} page}% the~\smash{\nthpagelink{\thevpagerefnum}} page
+\def\reftextbefore{on the \reftextvario{preceding}{previous} page}% the~\smash{\nthpagelink{\thevpagerefnum}} page
 \def\reftextpagerange#1#2{pages~\smash{\pageref{#1}}--\smash{\pageref{#2}}}%
 \def\reftextlabelrange#1#2{\smash{\ref{#1}} to~\smash{\ref{#2}}}%
+}
+
+\vref@addto\extrasngerman{%
+\def\reftextcurrent{auf dieser Seite}%
+\def\reftextfaraway#1{auf Seite\smash{~\pageref{#1}}}%
+\def\reftextfaceafter{auf der \reftextvario{nächsten}{gegenüberliegenden} Seite}%
+\def\reftextfacebefore{auf der vorherigen Seite}%
+\def\reftextafter{auf der \reftextvario{folgenden}{nächsten} Seite}% auf \reftextvario{Seite~\smash{\hyperpage{\thevpagerefnum}}}{Seite~\smash{\hyperpage{\thevpagerefnum}}}
+\def\reftextbefore{auf der  \reftextvario{vorherigen}{vorigen} Seite}% auf \reftextvario{Seite~\smash{\hyperpage{\thevpagerefnum}}}{Seite~\smash{\hyperpage{\thevpagerefnum}}}
+\def\reftextpagerange#1#2{Seiten~\smash{\pageref{#1}}--\smash{\pageref{#2}}}%
+\def\reftextlabelrange#1#2{\smash{\ref{#1}} bis~\smash{\ref{#2}}}%
 }
 
 \appto\extrasngerman{%
