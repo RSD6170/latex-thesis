@@ -11,6 +11,22 @@
     placement=tp,
 ]{pseudo}
 
+% based on https://tex.stackexchange.com/a/204271
+% setup pseudo to use straight quotes
+\AtBeginEnvironment{pseudo}{\useupquotes}
+
+% define the command that activates the quotes and redefines them
+\newcommand{\useupquotes}{%
+    \begingroup\lccode`\~=`\'\lowercase{\endgroup\let~}\algoupquote
+    \begingroup\lccode`\~=`\"\lowercase{\endgroup\let~}\algoupquotes
+    \catcode`\'=\active\catcode`\"=\active
+}
+
+% Customize here (\mbox is necessary because of math mode;
+% if needed in subscripts, use \text instead)
+\newcommand{\algoupquote}{\mbox{\textquotesingle}}
+\newcommand{\algoupquotes}{\mbox{\char`\"}}
+
 \ifthesis@pageInFloatRef
 \InitPageCounter{pseudo}
 \def\thesissetalg{\CountThisPage{pseudo}{c@pseudo@lb}}
